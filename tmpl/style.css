@@ -1,0 +1,68 @@
+/**
+* Simple meteo module
+* Version			: 2.0.3
+* Package			: Joomla 3.9.x
+* copyright 		: Copyright (C) 2021 ConseilGouz. All rights reserved.
+* license    		: http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+* From              : GMapFP Component Yahoo Météo for Joomla! 3.x
+*/
+.meteo_previsions {
+	position: relative;
+}
+.meteo_previsions p {
+	margin : 0;
+}
+
+div.cg_meteo_city {
+	font-size: 110%;
+    margin: 10px 0 10px;
+	text-align: center;
+}
+div .cg_meteo_date {
+	font-size: 110%;
+    margin: 10px 0 10px;
+	text-align: center;
+}
+div.cg_meteo_previsions {
+	display: inline-table;
+	
+}
+
+div.cg_meteo_previsions p{
+	font-size:0.85em;
+}
+div.cg_meteo_previsions {
+  padding:0;
+}
+.cg_meteo_previsions{ 
+	margin-left:0;
+	padding: 0;
+	text-align:center;	
+	padding-right: 0px;
+    padding-left: 0px;	
+} 
+.cg_meteo_previsions:hover, .cg_meteo_previsions:focus{
+    color:#000;
+}
+.cg_meteo_previsions span{ 
+    z-index:999;
+    position:absolute;
+	top:0;
+    margin-left:-10px;
+    color:#fff; 
+	background:rgba(0, 0, 0, 0.5); 
+	padding:10px; 
+	border-radius:3px; 
+	transform:scale(0) rotate(-180deg);
+	transition:all .25s;
+	opacity:0;
+	width: 10em;
+}
+.cg_meteo_previsions:hover span, .cg_meteo_previsions:focus span{ 
+	transform:scale(1) rotate(0);
+    opacity:1;
+}
+
+.cg_meteo_img_span {
+	margin:0;
+}

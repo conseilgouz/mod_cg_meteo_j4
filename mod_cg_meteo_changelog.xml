@@ -1,0 +1,55 @@
+<changelogs>
+	<changelog>
+		<element>mod_cg_meteo</element>
+		<type>module</type>
+		<version>2.0.3</version>
+        <note>
+            <item>Update : 22/11/2021</item>
+        </note>
+        <fix>
+            <item>WeatherBit IO : today's icon missing</item>
+        </fix>
+	</changelog>
+	<changelog>
+		<element>mod_cg_meteo</element>
+		<type>module</type>
+		<version>2.0.2</version>
+        <note>
+            <item>Update : 04/11/2021</item>
+        </note>
+        <fix>
+            <item>WebAsset : fix css directory</item>
+        </fix>
+	</changelog>
+	<changelog>
+		<element>mod_cg_meteo</element>
+		<type>module</type>
+		<version>2.0.1</version>
+        <note>
+            <item>Update : 28/10/2021</item>
+        </note>
+        <change>
+            <item>Joomla 4 full compatibilty</item>
+        </change>
+        <change>
+            <item>Rename Simple Meteo : becomes CG Meteo</item>
+        </change>
+        <addition>
+            <item>changelog.xml</item>
+        </addition>
+	</changelog>
+	<changelog>
+		<element>mod_cg_meteo</element>
+		<type>module</type>
+		<version>2.0.0</version>
+        <note>
+            <item>Update : 05/07/2021</item>
+        </note>
+        <change>
+            <item>Joomla 4 RC compatibilty</item>
+        </change>
+        <addition>
+            <item>changelog.xml</item>
+        </addition>
+	</changelog>
+</changelogs>

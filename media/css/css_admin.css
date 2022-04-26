@@ -1,0 +1,88 @@
+/**
+ * @package Simple Meteo Module
+ * @version 2.0.3
+ * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+ * @Copyright (C) 2021 ConseilGouz. All Rights Reserved.
+ * @author ConseilGouz 
+ * 
+ *						>>>	CSS for Admin display module  <<<
+ */
+.alert-success {font-size:120%;
+text-align:center}
+.tab-content .form-vertical, .subform-repeatable-group {
+background: #f0f0f0;
+border:2px solid #ddd;
+margin-top:40px;
+padding:20px;
+}
+.info-labels + div {
+background: none repeat scroll 0 0 #EEEEEE;
+color: #000000;
+font-size: 110%;
+font-style: italic;
+font-weight: normal;
+margin: 15px 0 30px;
+padding: 15px 10px 10px 20px;
+}
+.control-group:nth-of-type(5){ /* ville */
+	float:left;width:50%;
+}
+.control-group:nth-of-type(6){ /* code postal */
+	float:right;width:50%;
+}
+.control-group:nth-of-type(6) .control-label{ /* code postal */
+	text-align: right;
+}
+.control-group:nth-of-type(7){ /* ville_world */
+	float:left;width:40%;
+}
+.control-group:nth-of-type(8){ /* code postal world*/
+	float:left;width:30%;
+}
+.control-group:nth-of-type(8) .control-label{ /* code postal world*/
+	text-align: right;
+}
+.control-group:nth-of-type(9){ /* pays*/
+	float:right;width:30%;
+}
+.control-group:nth-of-type(9) .control-label{ /*pays*/
+	text-align: right;
+}
+.control-group:nth-of-type(10){ /* info*/
+	clear:both;
+}
+.control-group:nth-of-type(11){ /* info*/
+	clear:both;
+}
+.control-group:nth-of-type(12){ /*besoin clé open weather */
+	float:left;width:50%;
+}
+.control-group:nth-of-type(13){ /* la clé */
+	float:right;width:50%;
+}
+.control-group:nth-of-type(14){ /* besoin clé weatherbit */
+	float:left;width:50%;
+}
+.control-group:nth-of-type(15){ /* la clé weatherbit */
+	float:right;width:50%;
+}
+.control-group:nth-of-type(16){ /* fin XU */
+	float:none;width:100%;
+}
+.control-group:nth-of-type(17){ /* besoin clé XU */
+	float:left;width:50%;
+}
+.control-group:nth-of-type(18){ /* la clé XU */
+	float:right;width:50%;
+}
+.control-group:nth-of-type(19){ /* besoin clé DarkSky */
+	float:left;width:50%;
+}
+.control-group:nth-of-type(20){ /* la clé DarkSky */
+	float:right;width:50%;
+}
+.control-group:nth-of-type(21){ /* masquer Date */
+	clear:both;width:100%; 
+}
+#result{text-align:center;}
+

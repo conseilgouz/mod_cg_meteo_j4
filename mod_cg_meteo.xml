@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module"  method="upgrade" client="site">
+	<name>CG Meteo</name>
+	<author>ConseilGouz</author>
+	<creationDate>October 2021</creationDate>
+	<copyright>ConseilGouz All Rights Reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>pascal.leconte@conseilgouz.com</authorEmail>
+	<authorUrl>www.conseilgouz.com</authorUrl>
+	<version>2.0.3</version>
+	<description>MOD_METEO_DESC</description>
+	<files>
+		<filename module="mod_cg_meteo">mod_cg_meteo.php</filename>
+		<filename>index.html</filename>		
+		<folder>src</folder>	
+		<folder>tmpl</folder>
+	</files>
+	<media destination="mod_cg_meteo" folder="media">
+		<folder>js</folder>
+		<folder>icons</folder>
+		<folder>css</folder>
+		<filename>index.html</filename>
+	</media>
+	<namespace path="src">ConseilGouz\Module\CGMeteo</namespace>
+	<scriptfile>script.php</scriptfile>
+	<changelogurl>https://www.conseilgouz.com/updates/mod_cg_meteo_changelog.xml</changelogurl>
+	<languages>
+		<language tag="en-GB">language/en_GB/mod_cg_meteo.ini</language>
+		<language tag="en-GB">language/en_GB/mod_cg_meteo.sys.ini</language>
+		<language tag="fr-FR">language/fr_FR/mod_cg_meteo.ini</language>
+		<language tag="fr-FR">language/fr_FR/mod_cg_meteo.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">	
+			<fieldset name="basic" >
+				<field name="country" type="radio" class="btn-group" default="fr" label="MOD_METEO_COUNTRY_CHOICE">
+					<option value="fr">MOD_METEO_FRANCE</option>
+					<option value="wd">MOD_METEO_WORLD</option>
+				</field>
+				<field name="meteo_api" type="list" default="open">
+					<option value="open">Open Weather</option>
+					<option value="bit">WeatherBit</option>
+					<option value="xu">XU API</option>
+					<option value="darksky">DarkSky API</option>
+				</field>
+				<field  showon="country:fr" name="ville" type="text"  size="30"
+					label="MOD_METEO_VILLE" description="MOD_METEO_VILLE_DESC" />
+				<field  showon="country:fr" name="code" type="text" size="5"
+					label="MOD_METEO_CODEPOSTAL" description="MOD_METEO_CODEPOSTAL_DESC" />
+				<field  showon="country:wd" name="ville_wd" type="text"  size="30"
+					label="MOD_METEO_VILLE" description="MOD_METEO_VILLE_DESC" />
+				<field  showon="country:wd" name="zip_wd" type="text"  size="30"
+					label="MOD_METEO_CODEPOSTAL" description="MOD_METEO_CODEPOSTAL_DESC" />
+				<field  showon="country:wd" name="country_wd" type="text" size="5"
+					label="MOD_METEO_COUNTRY" description="MOD_METEO_COUNTRY_DESC" />
+				<field  showon="country:fr" type="note" label="MOD_NOTE" name="note" description="MOD_NOTE_DESCRIPTION"  />
+				<field  showon="country:wd" type="note" label="MOD_NOTE" name="note_wd" description="MOD_NOTE_WD_DESCRIPTION"  />
+			
+				<field name="woeid" type="hidden" />
+				<field name="lat" 	type="hidden"  />
+				<field  name="long" type="hidden" />
+				<field name="lat_wd" 	type="hidden"  />
+				<field  name="long_wd" type="hidden" />
+				<field showon="meteo_api:open" name="needopen" type="radio" class="btn-group" default="0" label="MOD_METEO_NEEDCLEOPEN" description="MOD_METEO_NEEDCLEOPEN_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field  showon="meteo_api:open[AND]needopen:1" name="openkey" type="text" size="30"
+					label="MOD_METEO_CLEOPEN" description="MOD_METEO_CLEOPEN_DESC" />
+				<field showon="meteo_api:bit" name="needbit" type="radio" class="btn-group" default="0" label="MOD_METEO_NEEDCLEBIT" description="MOD_METEO_NEEDCLEBIT_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field  showon="meteo_api:bit[AND]needbit:1" name="bitkey" type="text" size="30"
+					label="MOD_METEO_CLEBIT" description="MOD_METEO_CLEBIT_DESC" />
+				<field  showon="meteo_api:xu" type="note" label="MOD_NOTE" name="note_xu" description="MOD_METEO_FIN_XU"  />
+				<field showon="meteo_api:xu" name="needxu" type="radio" class="btn-group" default="0" label="MOD_METEO_NEEDCLEXU" description="MOD_METEO_NEEDCLEXU_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field  showon="meteo_api:xu[AND]needxu:1" name="xukey" type="text" size="30"
+					label="MOD_METEO_CLEXU" description="MOD_METEO_CLEXU_DESC" />
+				<field showon="meteo_api:darksky" name="needdarksky" type="radio" class="btn-group" default="0" label="MOD_METEO_NEEDCLEDARKSKY" description="MOD_METEO_NEEDCLEDARKSKY_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field  showon="meteo_api:darksky[AND]needdarksky:1" name="darkskykey" type="text" size="30"
+					label="MOD_METEO_CLEDARKSKY" description="MOD_METEO_CLEDARKSKY_DESC" />
+				<field name="afficher_date" type="list" default="DATE_FORMAT_LC" label="MOD_METEO_AFFICHER_DATE" description="MOD_METEO_AFFICHER_DATE_DESC">
+					<option value="0">JHIDE</option>
+					<option value="DATE_FORMAT_LC">DATE_FORMAT_LC</option>
+					<option value="DATE_FORMAT_JS1">DATE_FORMAT_JS1</option>
+				</field>
+				<field name="t12_24" type="radio" class="btn-group" default="24" label="MOD_METEO_TIME" description="MOD_METEO_TIME_DESC">
+					<option value="12">12H</option>
+					<option value="24">24H</option>
+				</field>
+				<field name="afficher_ville" type="radio" class="btn-group" default="1" label="MOD_METEO_AFFICHER_VILLE" description="MOD_METEO_AFFICHER_VILLE_DESC">
+					<option value="0">JHIDE</option>
+					<option value="1">JSHOW</option>
+				</field>
+				<field name="temp_unit" type="radio" class="btn-group" default="c" label="MOD_METEO_TEMP_UNIT" description="MOD_METEO_TEMP_UNIT_DESC">
+					<option value="c">MOD_METEO_CELSIUS</option>
+					<option value="f">MOD_METEO_FAHRENHEIT</option>
+				</field>
+				<field showon="meteo_api:yahoo,darksky" name="icon_yahoo_previsions" type="list" default="natif" hide_none="0" hide_default="1" label="MOD_METEO_ICON_PREVSIONS" description="MOD_METEO_ICON_PREVSIONS_DESC">
+					<option value="colored">MOD_METEO_COLORED</option>
+					<option value="natif">MOD_METEO_BW</option>
+               </field>
+				<field name="img_align" type="hidden" default="center" label="MOD_METEO_ALIGN" description="MOD_METEO_ALIGN_DESC">
+				</field>
+				<field name="meteo_previsions" type="radio" class="btn-group" default="1" label="MOD_METEO_AFFICHER_PREVISIONS" description="MOD_METEO_AFFICHER_PREVISIONS_DESC">
+					<option value="0">JHIDE</option>
+					<option value="1">JSHOW</option>
+				</field>
+				<field name="meteo_font_color" type="color"  default="#000" label="MOD_METEO_FONT_COLOR" description="MOD_METEO_FONT_COLOR_DESC" >
+				</field>
+				<field name="meteo_top" type="number"  default="0" label="MOD_METEO_TOP" description="MOD_METEO_TOP_DESC" 
+				min="-10" max="10">
+				</field>
+			</fieldset>
+			<fieldset
+				name="advanced">
+				<field name="moduleclass_sfx" type="text" default="" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+				<field
+					name="cache"
+					type="list"
+					default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option
+						value="1">JGLOBAL_USE_GLOBAL</option>
+					<option
+						value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+				<field
+					name="cache_time"
+					type="text"
+					default="15"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+				<field
+					name="cachemode"
+					type="hidden"
+					default="itemid">
+					<option
+						value="itemid"></option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+	<updateservers>
+	<server type="extension" name="Simple Meteo" priority="1">https://www.conseilgouz.com/updates/cg_meteo_update.xml</server>
+	</updateservers>
+	
+</extension>
