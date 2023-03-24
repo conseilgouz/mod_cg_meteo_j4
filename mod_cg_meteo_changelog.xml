@@ -2,6 +2,20 @@
 	<changelog>
 		<element>mod_cg_meteo</element>
 		<type>module</type>
+		<version>2.0.4</version>
+        <note>
+            <item>Update : 24/03/2023</item>
+        </note>
+        <change>
+            <item>2023 : darky service not available anymore</item>
+        </change>
+        <add>
+            <item>display dynamic version</item>
+        </add>
+	</changelog>
+	<changelog>
+		<element>mod_cg_meteo</element>
+		<type>module</type>
 		<version>2.0.3</version>
         <note>
             <item>Update : 22/11/2021</item>

@@ -24,64 +24,64 @@ font-weight: normal;
 margin: 15px 0 30px;
 padding: 15px 10px 10px 20px;
 }
-.control-group:nth-of-type(5){ /* ville */
+.control-group:nth-of-type(6){ /* ville */
 	float:left;width:50%;
 }
-.control-group:nth-of-type(6){ /* code postal */
+.control-group:nth-of-type(7){ /* code postal */
 	float:right;width:50%;
 }
-.control-group:nth-of-type(6) .control-label{ /* code postal */
+.control-group:nth-of-type(7) .control-label{ /* code postal */
 	text-align: right;
 }
-.control-group:nth-of-type(7){ /* ville_world */
+.control-group:nth-of-type(8){ /* ville_world */
 	float:left;width:40%;
 }
-.control-group:nth-of-type(8){ /* code postal world*/
+.control-group:nth-of-type(9){ /* code postal world*/
 	float:left;width:30%;
 }
-.control-group:nth-of-type(8) .control-label{ /* code postal world*/
+.control-group:nth-of-type(9) .control-label{ /* code postal world*/
 	text-align: right;
 }
-.control-group:nth-of-type(9){ /* pays*/
+.control-group:nth-of-type(10){ /* pays*/
 	float:right;width:30%;
 }
-.control-group:nth-of-type(9) .control-label{ /*pays*/
+.control-group:nth-of-type(10) .control-label{ /*pays*/
 	text-align: right;
-}
-.control-group:nth-of-type(10){ /* info*/
-	clear:both;
 }
 .control-group:nth-of-type(11){ /* info*/
 	clear:both;
 }
-.control-group:nth-of-type(12){ /*besoin clé open weather */
+.control-group:nth-of-type(12){ /* info*/
+	clear:both;
+}
+.control-group:nth-of-type(13){ /*besoin clé open weather */
 	float:left;width:50%;
 }
-.control-group:nth-of-type(13){ /* la clé */
+.control-group:nth-of-type(14){ /* la clé */
 	float:right;width:50%;
 }
-.control-group:nth-of-type(14){ /* besoin clé weatherbit */
+.control-group:nth-of-type(15){ /* besoin clé weatherbit */
 	float:left;width:50%;
 }
-.control-group:nth-of-type(15){ /* la clé weatherbit */
+.control-group:nth-of-type(16){ /* la clé weatherbit */
 	float:right;width:50%;
 }
-.control-group:nth-of-type(16){ /* fin XU */
+.control-group:nth-of-type(17){ /* fin XU */
 	float:none;width:100%;
 }
-.control-group:nth-of-type(17){ /* besoin clé XU */
+.control-group:nth-of-type(18){ /* besoin clé XU */
 	float:left;width:50%;
 }
-.control-group:nth-of-type(18){ /* la clé XU */
+.control-group:nth-of-type(19){ /* la clé XU */
 	float:right;width:50%;
 }
-.control-group:nth-of-type(19){ /* besoin clé DarkSky */
+.control-group:nth-of-type(20){ /* besoin clé DarkSky */
 	float:left;width:50%;
 }
-.control-group:nth-of-type(20){ /* la clé DarkSky */
+.control-group:nth-of-type(21){ /* la clé DarkSky */
 	float:right;width:50%;
 }
-.control-group:nth-of-type(21){ /* masquer Date */
+.control-group:nth-of-type(22){ /* masquer Date */
 	clear:both;width:100%; 
 }
 #result{text-align:center;}

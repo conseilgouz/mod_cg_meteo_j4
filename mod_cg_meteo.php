@@ -1,9 +1,9 @@
 <?php
 /**
 * Simple meteo module
-* Version			: 2.0.3
-* Package			: Joomla 4.0.x
-* copyright 		: Copyright (C) 2021 ConseilGouz. All rights reserved.
+* Version			: 2.0.4
+* Package			: Joomla 4.x
+* copyright 		: Copyright (C) 2023 ConseilGouz. All rights reserved.
 * license    		: http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
 */
 defined( '_JEXEC' ) or die;
@@ -33,14 +33,14 @@ $output = "<div id='cg_meteo_".$module->id."' name='cg_meteo_".$module->id."' me
 
 if ($params->get('temp_unit') == 'f') { $temp_unit = 'f'; } else { $temp_unit = 'c'; };
 
-if ($params->get('meteo_api','yahoo') == "open" ) {
+if ($params->get('meteo_api','open') == "open" ) {
 	if ($params->get('needopen','0') == 1) {
 		$helper->meteo_open($lat,$long, $ville, $temp_unit,$params->get('openkey') );
 	} else {
 		$helper->meteo_open($lat,$long, $ville, $temp_unit);
 	}
 }
-if ($params->get('meteo_api','yahoo') == "yahoo" ) {
+if ($params->get('meteo_api','open') == "yahoo" ) {
 	$helper->meteo_yahoo($params->get('woeid'), $temp_unit);
 }
 if ($params->get('meteo_api','yahoo') == "xu" ){
@@ -50,19 +50,20 @@ if ($params->get('meteo_api','yahoo') == "xu" ){
             $helper->meteo_xu($lat,$long, $ville,$temp_unit);
         }
 }
-if ($params->get('meteo_api','yahoo') == "bit" ){
+if ($params->get('meteo_api','open') == "bit" ){
 	if ($params->get('needbit','0') == 1) {
             $helper->meteo_bit($lat,$long, $ville,$temp_unit,$params->get('bitkey'));
         } else {
             $helper->meteo_bit($lat,$long, $ville,$temp_unit);
         }
 }
-if ($params->get('meteo_api','yahoo') == "darksky" ){
-	if ($params->get('needdarksky','0') == 1) {
-            $helper->meteo_darksky($lat,$long, $ville,$temp_unit,$params->get('darkskykey'));
-        } else {
-            $helper->meteo_darksky($lat,$long, $ville,$temp_unit);
-        }
+if ($params->get('meteo_api','open') == "darksky" ){
+	$helper->meteo_open($lat,$long, $ville, $temp_unit );
+	//if ($params->get('needdarksky','0') == 1) {
+    //        $helper->meteo_darksky($lat,$long, $ville,$temp_unit,$params->get('darkskykey'));
+    //    } else {
+    //        $helper->meteo_darksky($lat,$long, $ville,$temp_unit);
+    //    }
 }
 
 if ($helper->isfound()) {
@@ -102,7 +103,7 @@ if ($helper->isfound()) {
 	if ($params->get('meteo_api','yahoo') == "open" ) $output .= include dirname(__FILE__).'/tmpl/previsions_open.php';
 	if ($params->get('meteo_api','yahoo') == "yahoo" ) $output .= include dirname(__FILE__).'/tmpl/previsions_yahoo.php';
 	if ($params->get('meteo_api','yahoo') == "xu" ) $output .= include dirname(__FILE__).'/tmpl/previsions_xu.php';
-	if ($params->get('meteo_api','yahoo') == "darksky" ) $output .= include dirname(__FILE__).'/tmpl/previsions_darksky.php';
+	if ($params->get('meteo_api','yahoo') == "darksky" ) $output .= include dirname(__FILE__).'/tmpl/previsions_open.php';
 	if ($params->get('meteo_api','yahoo') == "bit" ) $output .= include dirname(__FILE__).'/tmpl/previsions_bit.php';
 	
 } else {

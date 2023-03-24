@@ -1,9 +1,9 @@
 <?php
 /**
 * CG meteo module from https://openweathermap.org
-* Version			: 2.0.3
-* Package			: Joomla 4.0.x
-* copyright 		: Copyright (C) 2021 ConseilGouz. All rights reserved.
+* Version			: 2.0.4
+* Package			: Joomla 4.x
+* copyright 		: Copyright (C) 2023 ConseilGouz. All rights reserved.
 * license    		: http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
 */
 namespace ConseilGouz\Module\CGMeteo\Site\Helper;
@@ -15,7 +15,7 @@ class MeteoHelper {
 	private $domain_open = 'https://api.openweathermap.org/data/2.5';
 	// private $domain_xu = 'http://api.apixu.com/v1/forecast.xml';
 	private $domain_bit = 'https://api.weatherbit.io/v2.0/forecast/daily?';
-	private $domain_darksky = 'https://api.darksky.net/forecast';
+	//private $domain_darksky = 'https://api.darksky.net/forecast';
 	
 	private $current_conditions = array();
 	private $forecast_conditions = array();
@@ -199,7 +199,7 @@ function buildAuthorizationHeader($oauth) {
 		}
 	}
        //------------------------------Meteo depuis DarkSky API ------------------------------------------------------------//
-	function meteo_darksky ($lat,$long,$city, $unit='c',$appid ='9a5cd5cae52ccc74e8c655a533d640fd') {
+	/*function meteo_darksky ($lat,$long,$city, $unit='c',$appid ='9a5cd5cae52ccc74e8c655a533d640fd') {
 		$getContentCode = "";
 		$this->url = $this->domain_darksky . "/".$appid."/".$lat.",".$long."?exclude=minutely,hourly,alerts,flags&lang=fr&units=si";
 		//recupere les donnees sur le serveur
@@ -258,7 +258,7 @@ function buildAuthorizationHeader($oauth) {
 			if ($getContentCode) trigger_error('DarkSky API erreur '.$getContentCode);
 			return null;
 		}
-	}	
+	}	*/
     private function prepareTime($time) {
         $f_date = date("Y-m-d")." ".$time;
         $pos = strpos($f_date, "pm");

@@ -1,7 +1,7 @@
 <?php
 /**
 * CG Meteo Module  - Joomla 4.0.0 Module 
-* Version			: 2.0.3
+* Version			: 2.0.4
 * Package			: CG Meteo
 * copyright 		: Copyright (C) 2021 ConseilGouz. All rights reserved.
 * license    		: http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
@@ -124,7 +124,14 @@ class mod_cg_meteoInstallerScript
 			->where($db->quoteName('extension_id') . ' = ' . $old_ext->extension_id);
 			$db->setQuery($query);
 			$db->execute();
-		}		
+		}	
+		// CG Popup is now on Github and is a module, not a package anymore
+		$query = $db->getQuery(true)
+			->delete('#__update_sites')
+			->where($db->quoteName('location') . ' like "%conseilgouz.com/updates/cg_meteo%" OR '.$db->quoteName('location') . ' like "%simple_meteo%"');
+		$db->setQuery($query);
+		$db->execute();
+		
 	}
 
 	// Check if Joomla version passes minimum requirement
