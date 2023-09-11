@@ -1,14 +1,15 @@
 <?php
 /**
 * Simple meteo module from https://openweathermap.org
-* Version			: 2.0.3
-* Package			: Joomla 3.9.x
-* copyright 		: Copyright (C) 2021 ConseilGouz. All rights reserved.
+* Version			: 2.1.0
+* Package			: Joomla 4.x/5.x
+* copyright 		: Copyright (C) 2023 ConseilGouz. All rights reserved.
 * license    		: http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
 */
 
 defined( '_JEXEC' ) or die( 'Direct Access not allowed.' );
 use Joomla\CMS\Language\Text as JText;
+use Joomla\CMS\Uri\Uri;
 
 $return = "";
 $font_color = $params->get('meteo_font_color',"#4c0ed8");
@@ -31,7 +32,7 @@ foreach ($previsions as $prevision) {
 	} else {
 		$icon = $icon.".png";
 	}
-	$path_icon = JURI::base().'media/mod_cg_meteo/icons/open/'.$icon;
+	$path_icon = URI::base().'media/mod_cg_meteo/icons/open/'.$icon;
 	$img = '<img src="'.$path_icon.'" alt="'.$prevision['condition'].'" title="'.$prevision['condition'].'"  align="'.$params->get('img_align').'" style="margin:-10px 0 5px 5px;"/>';
 	$return .= "<div class='cg_meteo_previsions fg-c4' ";
 	$return .= ($params->get( 'meteo_previsions',1) == 0) ? "style='width:100%;'" : ""; // pas de pr�vision: on prend toute la largeur
@@ -46,7 +47,7 @@ foreach ($previsions as $prevision) {
 		} else {
 			$icon = $icon.".png";
 		}
-		$path_icon = JURI::base().'media/mod_cg_meteo/icons/open/'.$icon;
+		$path_icon = URI::base().'media/mod_cg_meteo/icons/open/'.$icon;
 		$img = "<img class='cg_meteo_img' src='".$path_icon."' alt='".$actuelle['condition']."'  title='".$actuelle['condition']."' align=".$params->get('img_align')."' style = 'margin:".$img_margin.";' />";
 		$label = "<span class='infobulle_meteo' style='top:".$params->get( 'meteo_top',0)."em;'>".JText::_('MOD_METEO_NOW')."<br/>";
 		$label .= $img;

@@ -18,9 +18,11 @@ class MeteoHelper {
 	//private $domain_darksky = 'https://api.darksky.net/forecast';
 	
 	private $current_conditions = array();
+	private $forecast_conditions_temp;
 	private $forecast_conditions = array();
 	private $is_found = false;
 	private $response;
+	private $url;
         //--------------------------------Meteo depuis Yahoo V2-------------------------------------------------//
 function buildBaseString($baseURI, $method, $params) {
     $r = array();

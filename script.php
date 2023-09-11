@@ -1,23 +1,23 @@
 <?php
 /**
 * CG Meteo Module  - Joomla 4.0.0 Module 
-* Version			: 2.0.4
-* Package			: CG Meteo
-* copyright 		: Copyright (C) 2021 ConseilGouz. All rights reserved.
+* Version			: 2.1.0
+* Package			: Joomla 4.x/5.x
+* copyright 		: Copyright (C) 2023 ConseilGouz. All rights reserved.
 * license    		: http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
 */
 // No direct access to this file
 defined('_JEXEC') or die;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Text;
-use Joomla\CMS\Filesystem\Folder;
+use Joomla\Filesystem\Folder;
 use Joomla\CMS\Version;
-use Joomla\CMS\Filesystem\File;
+use Joomla\Filesystem\File;
 
 class mod_cg_meteoInstallerScript
 {
 	private $min_joomla_version      = '3.10.0';
-	private $min_php_version         = '7.2';
+	private $min_php_version         = '7.4';
 	private $name                    = 'CG Meteo';
 	private $exttype                 = 'module';
 	private $extname                 = 'cg_meteo';
@@ -27,8 +27,6 @@ class mod_cg_meteoInstallerScript
 	public function __construct()
 	{
 		$this->dir = __DIR__;
-		$this->lang = Factory::getLanguage();
-		$this->lang->load($this->extname);
 	}
 
     function preflight($type, $parent)
@@ -169,7 +167,7 @@ class mod_cg_meteoInstallerScript
 	}
 	function uninstallInstaller()
 	{
-		if ( ! Folder::exists(JPATH_PLUGINS . '/system/' . $this->installerName)) {
+		if ( ! is_dir(JPATH_PLUGINS . '/system/' . $this->installerName)) {
 			return;
 		}
 		$this->delete([

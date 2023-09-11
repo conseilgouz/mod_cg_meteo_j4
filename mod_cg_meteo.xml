@@ -2,12 +2,12 @@
 <extension type="module"  method="upgrade" client="site">
 	<name>CG Meteo</name>
 	<author>ConseilGouz</author>
-	<creationDate>2023/03/25</creationDate>
+	<creationDate>2023-09-11</creationDate>
 	<copyright>ConseilGouz All Rights Reserved.</copyright>
 	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
 	<authorEmail>pascal.leconte@conseilgouz.com</authorEmail>
 	<authorUrl>www.conseilgouz.com</authorUrl>
-	<version>2.0.5</version>
+	<version>2.1.0</version>
 	<description>MOD_METEO_DESC</description>
 	<files>
 		<filename module="mod_cg_meteo">mod_cg_meteo.php</filename>

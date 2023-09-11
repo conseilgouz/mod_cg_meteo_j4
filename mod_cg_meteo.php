@@ -1,13 +1,16 @@
 <?php
 /**
 * Simple meteo module
-* Version			: 2.0.4
-* Package			: Joomla 4.x
+* Version			: 2.1.0
+* Package			: Joomla 4.x/5.x
 * copyright 		: Copyright (C) 2023 ConseilGouz. All rights reserved.
 * license    		: http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
 */
 defined( '_JEXEC' ) or die;
 use Joomla\CMS\Factory;
+use Joomla\CMS\Uri\Uri;
+use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Language\Text;
 use ConseilGouz\Module\CGMeteo\Site\Helper\MeteoHelper;
 
 $modulefield	= 'media/mod_cg_meteo/';
@@ -67,13 +70,13 @@ if ($params->get('meteo_api','open') == "darksky" ){
 }
 
 if ($helper->isfound()) {
-	$icon_path = JURI::Base(false)."media/mod_cg_meteo/icons/";
+	$icon_path = URI::Base(false)."media/mod_cg_meteo/icons/";
 	$actuelle = $helper->getCurrent();
 	$img_margin = "5px 0";
 	if ($params->get('img_align')=="left") { $img_margin = "0 10px 5px 0";  }
 	if ($params->get('img_align')=="right") { $img_margin = "0 0 5px 10px";  }
 	$now = date('');
-	if ($params->get('afficher_date', 0)) $output .=  "<div class='cg_meteo_date'>".JHtml::date( $now, JText::_($params->get('afficher_date')))."</div>";
+	if ($params->get('afficher_date', 0)) $output .=  "<div class='cg_meteo_date'>".HTMLHelper::date( $now, Text::_($params->get('afficher_date')))."</div>";
 	if ($params->get('afficher_ville', 1)) $output .=  "<div class='cg_meteo_city'>".$helper->getCity()."</div>";
 
 	switch ($params->get('temp_unit')) {
