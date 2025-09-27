@@ -2,15 +2,15 @@
 <extension type="module"  method="upgrade" client="site">
 	<name>CG Meteo</name>
 	<author>ConseilGouz</author>
-	<creationDate>2023-09-11</creationDate>
+	<creationDate>2025-09-27</creationDate>
 	<copyright>ConseilGouz All Rights Reserved.</copyright>
 	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
 	<authorEmail>pascal.leconte@conseilgouz.com</authorEmail>
 	<authorUrl>www.conseilgouz.com</authorUrl>
-	<version>2.1.0</version>
+	<version>2.1.1</version>
 	<description>MOD_METEO_DESC</description>
 	<files>
-		<filename module="mod_cg_meteo">mod_cg_meteo.php</filename>
+		<folder module="mod_cg_meteo">services</folder>
 		<filename>index.html</filename>		
 		<folder>src</folder>	
 		<folder>tmpl</folder>
@@ -32,7 +32,7 @@
 	</languages>
 	<config>
 		<fields name="params">	
-			<fieldset name="basic" addfieldprefix="ConseilGouz\Module\CGMeteo\Site\Field">
+			<fieldset name="basic" addfieldprefix="ConseilGouz\Library\Field">
 				<field name="version" type="version"  margintop="-4em" extension="mod_cg_meteo"/>
 				<field name="country" type="radio" class="btn-group" default="fr" label="MOD_METEO_COUNTRY_CHOICE">
 					<option value="fr">MOD_METEO_FRANCE</option>

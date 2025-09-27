@@ -1,10 +1,9 @@
 <?php
 /**
-* Simple meteo module
-* Version			: 2.1.0
-* Package			: Joomla 4.x/5.x
-* copyright 		: Copyright (C) 2023 ConseilGouz. All rights reserved.
-* license    		: http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+* CG Météo Module
+* Package			: Joomla 4.x / 5.x/6.x
+* copyright 		: Copyright (C) 2025 ConseilGouz. All rights reserved.
+* license    		: https://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
 */
 defined( '_JEXEC' ) or die;
 use Joomla\CMS\Factory;
@@ -103,11 +102,11 @@ if ($helper->isfound()) {
 	$previsions = $helper->getForecast();
 	$unit_system = $helper->getUnit_system();
 	if (!$unit) $unit = ($unit_system=="US") ? "F" : "C";
-	if ($params->get('meteo_api','yahoo') == "open" ) $output .= include dirname(__FILE__).'/tmpl/previsions_open.php';
-	if ($params->get('meteo_api','yahoo') == "yahoo" ) $output .= include dirname(__FILE__).'/tmpl/previsions_yahoo.php';
-	if ($params->get('meteo_api','yahoo') == "xu" ) $output .= include dirname(__FILE__).'/tmpl/previsions_xu.php';
-	if ($params->get('meteo_api','yahoo') == "darksky" ) $output .= include dirname(__FILE__).'/tmpl/previsions_open.php';
-	if ($params->get('meteo_api','yahoo') == "bit" ) $output .= include dirname(__FILE__).'/tmpl/previsions_bit.php';
+	if ($params->get('meteo_api','yahoo') == "open" ) $output .= include dirname(__FILE__).'/previsions_open.php';
+	if ($params->get('meteo_api','yahoo') == "yahoo" ) $output .= include dirname(__FILE__).'/previsions_yahoo.php';
+	if ($params->get('meteo_api','yahoo') == "xu" ) $output .= include dirname(__FILE__).'/previsions_xu.php';
+	if ($params->get('meteo_api','yahoo') == "darksky" ) $output .= include dirname(__FILE__).'/previsions_open.php';
+	if ($params->get('meteo_api','yahoo') == "bit" ) $output .= include dirname(__FILE__).'/previsions_bit.php';
 	
 } else {
 	$output .=error_get_last()['message'];
