@@ -1,9 +1,8 @@
 <?php
 /**
 * CG meteo module from https://openweathermap.org
-* Version			: 2.0.4
-* Package			: Joomla 4.x
-* copyright 		: Copyright (C) 2023 ConseilGouz. All rights reserved.
+* Package			: Joomla 4.x/5.x/6.x
+* copyright 		: Copyright (C) 2025 ConseilGouz. All rights reserved.
 * license    		: http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
 */
 namespace ConseilGouz\Module\CGMeteo\Site\Helper;
@@ -276,7 +275,7 @@ function buildAuthorizationHeader($oauth) {
         curl_setopt($curl, CURLOPT_URL, $url);
         $this->response = curl_exec($curl);
 		$infos = curl_getinfo($curl);
-        curl_close ($curl);
+        // php 8.5 : curl_close ($curl);
         return $infos['http_code'];
     }
 	private function getHttpContent($url, $infos)
@@ -284,7 +283,7 @@ function buildAuthorizationHeader($oauth) {
 		if ($this->response = @file_get_contents($url)) {
         	return 200;
 		}
-                $infos = $http_response_header[0];
+        $infos = http_get_last_response_headers(0);// php 8.5 : $http_response_header[0];
 		return '2000'.' '.$infos;
     }
 	function getCity() {
